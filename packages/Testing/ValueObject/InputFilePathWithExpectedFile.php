@@ -25,7 +25,7 @@ final class InputFilePathWithExpectedFile
         $this->addedFileWithContent = $addedFileWithContent;
     }
 
-    public function getInputFileInfo(): SmartFileInfo
+    public function getInputFileInfo(): \SmartFileInfo
     {
         return new SmartFileInfo($this->inputFilePath);
     }

@@ -19,7 +19,7 @@ use Rector\Php80\ValueObject\AnnotationToAttribute;
 
 final class PhpAttributeGroupFactory
 {
-    public function createFromSimpleTag(AnnotationToAttribute $annotationToAttribute): AttributeGroup
+    public function createFromSimpleTag(AnnotationToAttribute $annotationToAttribute): \AttributeGroup
     {
         $fullyQualified = new FullyQualified($annotationToAttribute->getAttributeClass());
         $attribute = new Attribute($fullyQualified);
@@ -29,7 +29,7 @@ final class PhpAttributeGroupFactory
     public function create(
         DoctrineAnnotationTagValueNode $doctrineAnnotationTagValueNode,
         AnnotationToAttribute $annotationToAttribute
-    ): AttributeGroup {
+    ): \AttributeGroup {
         $fullyQualified = new FullyQualified($annotationToAttribute->getAttributeClass());
 
         $values = $doctrineAnnotationTagValueNode->getValuesWithExplicitSilentAndWithoutQuotes();

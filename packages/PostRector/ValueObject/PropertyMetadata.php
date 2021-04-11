@@ -23,6 +23,7 @@ final class PropertyMetadata
      */
     private $flags;
 
+
     public function __construct(string $name, ?Type $type, int $flags)
     {
         $this->name = $name;

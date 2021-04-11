@@ -122,7 +122,7 @@ final class TagValueNodeReprintTest extends AbstractKernelTestCase
         return explode(PHP_EOL, $trimmedContent);
     }
 
-    private function createFixtureFileInfo(TrioContent $trioContent, SmartFileInfo $fixturefileInfo): SmartFileInfo
+    private function createFixtureFileInfo(TrioContent $trioContent, SmartFileInfo $fixturefileInfo): \SmartFileInfo
     {
         $temporaryFileName = sys_get_temp_dir() . '/rector/tests/' . $fixturefileInfo->getRelativePathname();
         $firstValue = $trioContent->getFirstValue();
@@ -136,7 +136,6 @@ final class TagValueNodeReprintTest extends AbstractKernelTestCase
     /**
      * @template T as Node
      * @param class-string<T> $nodeType
-     * @return T
      */
     private function parseFileAndGetFirstNodeOfType(SmartFileInfo $smartFileInfo, string $nodeType): Node
     {

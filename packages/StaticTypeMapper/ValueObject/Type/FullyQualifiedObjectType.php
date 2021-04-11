@@ -13,7 +13,7 @@ use Rector\NodeTypeResolver\Node\AttributeKey;
 
 final class FullyQualifiedObjectType extends ObjectType
 {
-    public function getShortNameType(): ShortenedObjectType
+    public function getShortNameType(): \ShortenedObjectType
     {
         return new ShortenedObjectType($this->getShortName(), $this->getClassName());
     }
@@ -43,7 +43,7 @@ final class FullyQualifiedObjectType extends ObjectType
         return $name;
     }
 
-    public function getUseNode(): Use_
+    public function getUseNode(): \Use_
     {
         $name = new Name($this->getClassName());
         $useUse = new UseUse($name);
@@ -53,7 +53,7 @@ final class FullyQualifiedObjectType extends ObjectType
         return new Use_([$useUse]);
     }
 
-    public function getFunctionUseNode(): Use_
+    public function getFunctionUseNode(): \Use_
     {
         $name = new Name($this->getClassName());
         $useUse = new UseUse($name, null, Use_::TYPE_FUNCTION);

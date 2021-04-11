@@ -94,6 +94,7 @@ final class FunctionMethodAndClassNodeVisitor extends NodeVisitorAbstract
         $node->setAttribute(AttributeKey::METHOD_NODE, $this->classMethod);
     }
 
+
     private function setClassNodeAndName(?ClassLike $classLike): void
     {
         $this->classLike = $classLike;

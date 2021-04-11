@@ -29,7 +29,7 @@ final class RectorBetterReflectionSourceLocatorFactory
         $this->intermediateSourceLocator = $intermediateSourceLocator;
     }
 
-    public function create(): MemoizingSourceLocator
+    public function create(): \MemoizingSourceLocator
     {
         $phpStanSourceLocator = $this->betterReflectionSourceLocatorFactory->create();
 

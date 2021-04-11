@@ -16,7 +16,7 @@ final class SymfonyRouteTagValueNodeFactory
     /**
      * @param array<string, mixed> $items
      */
-    public function createFromItems(array $items): DoctrineAnnotationTagValueNode
+    public function createFromItems(array $items): \DoctrineAnnotationTagValueNode
     {
         return new DoctrineAnnotationTagValueNode(
             'Symfony\Component\Routing\Annotation\Route',

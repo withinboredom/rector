@@ -43,7 +43,7 @@ final class RectorsChangelogResolverTest extends AbstractKernelTestCase
         $this->assertSame($expectedRectorsChangelogs, $rectorsChangelogs);
     }
 
-    private function createFileDiff(): FileDiff
+    private function createFileDiff(): \FileDiff
     {
         // This is by intention to test the array_unique functionality
         $rectorWithFileAndLineChange1 = new RectorWithFileAndLineChange(

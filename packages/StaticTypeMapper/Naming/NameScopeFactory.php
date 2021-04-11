@@ -41,7 +41,7 @@ final class NameScopeFactory
         $this->phpDocInfoFactory = $phpDocInfoFactory;
     }
 
-    public function createNameScopeFromNodeWithoutTemplateTypes(Node $node): NameScope
+    public function createNameScopeFromNodeWithoutTemplateTypes(Node $node): \NameScope
     {
         $scope = $node->getAttribute(AttributeKey::SCOPE);
         $namespace = $scope instanceof Scope ? $scope->getNamespace() : null;
@@ -55,7 +55,7 @@ final class NameScopeFactory
         return new NameScope($namespace, $uses, $className);
     }
 
-    public function createNameScopeFromNode(Node $node): NameScope
+    public function createNameScopeFromNode(Node $node): \NameScope
     {
         $nameScope = $this->createNameScopeFromNodeWithoutTemplateTypes($node);
         $templateTypeMap = $this->templateTemplateTypeMap($node);
@@ -103,7 +103,7 @@ final class NameScopeFactory
         return $useNamesByAlias;
     }
 
-    private function templateTemplateTypeMap(Node $node): TemplateTypeMap
+    private function templateTemplateTypeMap(Node $node): \TemplateTypeMap
     {
         $nodeTemplateTypes = $this->resolveTemplateTypesFromNode($node);
 

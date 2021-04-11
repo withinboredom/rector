@@ -75,7 +75,7 @@ final class PhpDocInfoTest extends AbstractKernelTestCase
         $this->assertStringEqualsFile(__DIR__ . '/Source/expected-replaced-tag.txt', $printedPhpDocInfo);
     }
 
-    private function createPhpDocInfoFromFile(string $path): PhpDocInfo
+    private function createPhpDocInfoFromFile(string $path): ?PhpDocInfo
     {
         $phpDocInfoFactory = $this->getService(PhpDocInfoFactory::class);
         $phpDocContent = $this->smartFileSystem->readFile($path);

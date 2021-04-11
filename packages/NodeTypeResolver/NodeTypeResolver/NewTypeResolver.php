@@ -81,7 +81,7 @@ final class NewTypeResolver implements NodeTypeResolverInterface
         return $scope->getType($node);
     }
 
-    private function resolveAnonymousClassType(New_ $new): ObjectWithoutClassType
+    private function resolveAnonymousClassType(New_ $new): \ObjectWithoutClassType
     {
         if (! $new->class instanceof Class_) {
             return new ObjectWithoutClassType();

@@ -37,7 +37,7 @@ final class FileDiffFactory
         $this->consoleDiffer = $consoleDiffer;
     }
 
-    public function createFileDiff(File $file, string $oldContent, string $newContent): FileDiff
+    public function createFileDiff(File $file, string $oldContent, string $newContent): \FileDiff
     {
         $smartFileInfo = $file->getSmartFileInfo();
         $rectorChanges = $this->rectorChangeCollector->getRectorChangesByFileInfo($smartFileInfo);

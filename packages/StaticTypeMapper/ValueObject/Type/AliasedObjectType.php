@@ -28,7 +28,7 @@ final class AliasedObjectType extends ObjectType
         return $this->fullyQualifiedClass;
     }
 
-    public function getUseNode(): Use_
+    public function getUseNode(): \Use_
     {
         $name = new Name($this->fullyQualifiedClass);
         $useUse = new UseUse($name, $this->getClassName());

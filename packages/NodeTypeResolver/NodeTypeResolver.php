@@ -33,6 +33,7 @@ use PHPStan\Type\MixedType;
 use PHPStan\Type\NullType;
 use PHPStan\Type\ObjectType;
 use PHPStan\Type\ObjectWithoutClassType;
+use PHPStan\Type\SubtractableType;
 use PHPStan\Type\ThisType;
 use PHPStan\Type\Type;
 use PHPStan\Type\TypeCombinator;
@@ -233,7 +234,7 @@ final class NodeTypeResolver
      * @deprecated
      * Use @see NodeTypeResolver::resolve() instead
      */
-    public function getStaticType(Node $node): Type
+    public function getStaticType(Node $node): SubtractableType
     {
         if ($node instanceof Param) {
             return $this->resolve($node);

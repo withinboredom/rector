@@ -47,7 +47,7 @@ final class PhpDocNodeMapperTest extends AbstractKernelTestCase
      * Creates doc block for:
      * @property string|null $name
      */
-    private function createParamDocNode(): PhpDocNode
+    private function createParamDocNode(): \PhpDocNode
     {
         $nullableTypeNode = new NullableTypeNode(new IdentifierTypeNode('string'));
         $paramTagValueNode = new ParamTagValueNode($nullableTypeNode, true, 'name', '');

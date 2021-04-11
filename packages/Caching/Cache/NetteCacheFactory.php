@@ -29,7 +29,7 @@ final class NetteCacheFactory
         $this->smartFileSystem = $smartFileSystem;
     }
 
-    public function create(): Cache
+    public function create(): \Cache
     {
         $cacheDirectory = $this->parameterProvider->provideStringParameter(Option::CACHE_DIR);
 

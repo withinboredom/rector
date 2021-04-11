@@ -87,7 +87,7 @@ abstract class AbstractPhpDocNodeFactory
     /**
      * Covers spaces like https://github.com/rectorphp/rector/issues/2110
      */
-    protected function matchCurlyBracketAroundSpaces(string $annotationContent): AroundSpaces
+    protected function matchCurlyBracketAroundSpaces(string $annotationContent): \AroundSpaces
     {
         $match = Strings::match($annotationContent, self::OPENING_SPACE_REGEX);
         $openingSpace = $match['opening_space'] ?? '';

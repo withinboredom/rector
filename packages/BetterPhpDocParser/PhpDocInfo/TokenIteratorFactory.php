@@ -32,7 +32,7 @@ final class TokenIteratorFactory
         $this->privatesAccessor = $privatesAccessor;
     }
 
-    public function create(string $content): BetterTokenIterator
+    public function create(string $content): \BetterTokenIterator
     {
         $tokens = $this->lexer->tokenize($content);
         return new BetterTokenIterator($tokens);

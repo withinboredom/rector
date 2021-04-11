@@ -62,7 +62,7 @@ final class IterableTypeMapper implements TypeMapperInterface
 
     private function convertUnionArrayTypeNodesToArrayTypeOfUnionTypeNodes(
         UnionTypeNode $unionTypeNode
-    ): BracketsAwareUnionTypeNode {
+    ): \BracketsAwareUnionTypeNode {
         $unionedArrayType = [];
         foreach ($unionTypeNode->types as $unionedType) {
             if ($unionedType instanceof UnionTypeNode) {
