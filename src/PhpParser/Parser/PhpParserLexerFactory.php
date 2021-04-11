@@ -12,7 +12,7 @@ use PhpParser\Lexer\Emulative;
  */
 final class PhpParserLexerFactory
 {
-    public function create(): Emulative
+    public function create(): \Emulative
     {
         return new Emulative([
             'usedAttributes' => ['comments', 'startLine', 'endLine', 'startTokenPos', 'endTokenPos'],

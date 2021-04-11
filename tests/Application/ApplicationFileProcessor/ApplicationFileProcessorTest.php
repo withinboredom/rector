@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Rector\Core\Tests\Application\ApplicationFileProcessor;
 
-use Rector\ChangesReporting\Application\ErrorAndDiffCollector;
 use Rector\Core\Application\ApplicationFileProcessor;
 use Rector\Core\Application\FileFactory;
 use Rector\Core\Configuration\Configuration;
@@ -18,11 +17,6 @@ final class ApplicationFileProcessorTest extends AbstractKernelTestCase
      * @var ApplicationFileProcessor
      */
     private $applicationFileProcessor;
-
-    /**
-     * @var ErrorAndDiffCollector
-     */
-    private $errorAndDiffCollector;
 
     /**
      * @var FileFactory
@@ -43,7 +37,6 @@ final class ApplicationFileProcessorTest extends AbstractKernelTestCase
         $configuration->setIsDryRun(true);
 
         $this->applicationFileProcessor = $this->getService(ApplicationFileProcessor::class);
-        $this->errorAndDiffCollector = $this->getService(ErrorAndDiffCollector::class);
         $this->fileFactory = $this->getService(FileFactory::class);
         $this->processResultFactory = $this->getService(ProcessResultFactory::class);
     }

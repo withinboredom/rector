@@ -111,7 +111,7 @@ final class AssignAndBinaryMap
         return self::BINARY_OP_TO_INVERSE_CLASSES[$nodeClass] ?? null;
     }
 
-    public function getTruthyExpr(Expr $expr): Expr
+    public function getTruthyExpr(Expr $expr): Node
     {
         if ($expr instanceof Bool_) {
             return $expr;

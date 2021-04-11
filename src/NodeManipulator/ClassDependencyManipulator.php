@@ -224,7 +224,7 @@ final class ClassDependencyManipulator
         return false;
     }
 
-    private function createParentClassMethodCall(string $methodName): Expression
+    private function createParentClassMethodCall(string $methodName): \Expression
     {
         $staticCall = new StaticCall(new Name('parent'), $methodName);
 

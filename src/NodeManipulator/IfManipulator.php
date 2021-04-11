@@ -348,7 +348,7 @@ final class IfManipulator
         return ! (bool) $if->elseifs;
     }
 
-    public function createIfNegation(Expr $expr, Stmt $stmt): If_
+    public function createIfNegation(Expr $expr, Stmt $stmt): \If_
     {
         $expr = $this->conditionInverter->createInvertedCondition($expr);
 
@@ -360,7 +360,7 @@ final class IfManipulator
         );
     }
 
-    public function createIfExpr(Expr $expr, Stmt $stmt): If_
+    public function createIfExpr(Expr $expr, Stmt $stmt): \If_
     {
         return new If_(
             $expr,

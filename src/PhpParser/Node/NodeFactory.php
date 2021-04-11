@@ -179,7 +179,7 @@ final class NodeFactory
      *
      * @param mixed[] $items
      */
-    public function createArray(array $items): Array_
+    public function createArray(array $items): \Array_
     {
         $arrayItems = [];
 
@@ -219,7 +219,7 @@ final class NodeFactory
         return $this->createPropertyAssignmentWithExpr($propertyName, $variable);
     }
 
-    public function createPropertyAssignmentWithExpr(string $propertyName, Expr $expr): Assign
+    public function createPropertyAssignmentWithExpr(string $propertyName, Expr $expr): \Assign
     {
         $propertyFetch = $this->createPropertyFetch(self::THIS, $propertyName);
         return new Assign($propertyFetch, $expr);
@@ -228,7 +228,7 @@ final class NodeFactory
     /**
      * @param mixed $argument
      */
-    public function createArg($argument): Arg
+    public function createArg($argument): \Arg
     {
         return new Arg(BuilderHelpers::normalizeValue($argument));
     }
@@ -331,7 +331,7 @@ final class NodeFactory
     /**
      * @param Param[] $params
      */
-    public function createParentConstructWithParams(array $params): StaticCall
+    public function createParentConstructWithParams(array $params): \StaticCall
     {
         return new StaticCall(
             new Name(self::REFERENCE_PARENT),
@@ -499,13 +499,13 @@ final class NodeFactory
     /**
      * @param mixed[] $arguments
      */
-    public function createFuncCall(string $name, array $arguments = []): FuncCall
+    public function createFuncCall(string $name, array $arguments = []): \FuncCall
     {
         $arguments = $this->createArgs($arguments);
         return new FuncCall(new Name($name), $arguments);
     }
 
-    public function createSelfFetchConstant(string $constantName, Node $node): ClassConstFetch
+    public function createSelfFetchConstant(string $constantName, Node $node): \ClassConstFetch
     {
         $name = new Name('self');
         $name->setAttribute(AttributeKey::CLASS_NAME, $node->getAttribute(AttributeKey::CLASS_NAME));
@@ -526,7 +526,7 @@ final class NodeFactory
         return $args;
     }
 
-    public function createNull(): ConstFetch
+    public function createNull(): \ConstFetch
     {
         return new ConstFetch(new Name('null'));
     }
@@ -549,12 +549,12 @@ final class NodeFactory
         return $param;
     }
 
-    public function createFalse(): ConstFetch
+    public function createFalse(): \ConstFetch
     {
         return new ConstFetch(new Name('false'));
     }
 
-    public function createTrue(): ConstFetch
+    public function createTrue(): \ConstFetch
     {
         return new ConstFetch(new Name('true'));
     }

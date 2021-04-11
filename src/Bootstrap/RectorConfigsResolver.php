@@ -54,7 +54,7 @@ final class RectorConfigsResolver
         return $configFileInfos;
     }
 
-    public function provide(): BootstrapConfigs
+    public function provide(): \BootstrapConfigs
     {
         $argvInput = new ArgvInput();
         $mainConfigFileInfo = $this->configResolver->resolveFromInputWithFallback($argvInput, ['rector.php']);

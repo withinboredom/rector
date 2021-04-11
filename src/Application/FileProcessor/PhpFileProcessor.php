@@ -182,7 +182,7 @@ final class PhpFileProcessor implements FileProcessorInterface
         $parsedStmtsAndTokens->updateNewStmts($newStmts);
     }
 
-    private function parseAndTraverseFileInfoToNodes(SmartFileInfo $smartFileInfo): ParsedStmtsAndTokens
+    private function parseAndTraverseFileInfoToNodes(SmartFileInfo $smartFileInfo): \ParsedStmtsAndTokens
     {
         $oldStmts = $this->parser->parseFileInfo($smartFileInfo);
         $oldTokens = $this->lexer->getTokens();

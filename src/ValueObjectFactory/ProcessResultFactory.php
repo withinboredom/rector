@@ -23,7 +23,7 @@ final class ProcessResultFactory
     /**
      * @param File[] $files
      */
-    public function create(array $files): ProcessResult
+    public function create(array $files): \ProcessResult
     {
         $fileDiffs = [];
         foreach ($files as $file) {

@@ -120,7 +120,7 @@ final class RectorKernel extends Kernel implements ExtraConfigAwareKernelInterfa
      * This allows to use "%vendor%" variables in imports
      * @param ContainerInterface|ContainerBuilder $container
      */
-    protected function getContainerLoader(ContainerInterface $container): DelegatingLoader
+    protected function getContainerLoader(ContainerInterface $container): \DelegatingLoader
     {
         $fileLocator = new FileLocator($this);
 

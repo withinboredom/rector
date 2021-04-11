@@ -61,7 +61,6 @@ final class BetterNodeFinder
     /**
      * @template T of Node
      * @param class-string<T> $type
-     * @return T|null
      */
     public function findParentType(Node $node, string $type): ?Node
     {
@@ -88,7 +87,6 @@ final class BetterNodeFinder
     /**
      * @template T of \PhpParser\Node
      * @param array<class-string<T>> $types
-     * @return T|null
      */
     public function findParentTypes(Node $node, array $types): ?Node
     {
@@ -128,7 +126,6 @@ final class BetterNodeFinder
      * @template T of Node
      * @param class-string<T> $type
      * @param Node|Node[] $nodes
-     * @return T|null
      */
     public function findFirstInstanceOf($nodes, string $type): ?Node
     {
@@ -187,7 +184,6 @@ final class BetterNodeFinder
      * @template T of Node
      * @param class-string<T> $type
      * @param Node|Node[] $nodes
-     * @return T|null
      */
     public function findLastInstanceOf($nodes, string $type): ?Node
     {
@@ -322,7 +318,6 @@ final class BetterNodeFinder
     /**
      * @template T of Node
      * @param array<class-string<T>> $types
-     * @return T|null
      */
     public function findFirstPreviousOfTypes(Node $mainNode, array $types): ?Node
     {
@@ -359,7 +354,6 @@ final class BetterNodeFinder
      * @template T of Node
      * @param Node|Node[] $nodes
      * @param class-string<T> $type
-     * @return T|null
      */
     private function findInstanceOfName($nodes, string $type, string $name): ?Node
     {

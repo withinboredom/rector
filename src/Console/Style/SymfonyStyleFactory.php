@@ -23,7 +23,7 @@ final class SymfonyStyleFactory
         $this->privatesCaller = $privatesCaller;
     }
 
-    public function create(): SymfonyStyle
+    public function create(): \SymfonyStyle
     {
         $argvInput = new ArgvInput();
         $consoleOutput = new ConsoleOutput();
