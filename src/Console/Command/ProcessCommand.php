@@ -18,6 +18,7 @@ use Rector\Core\Console\Output\OutputFormatterCollector;
 use Rector\Core\Exception\ShouldNotHappenException;
 use Rector\Core\FileSystem\PhpFilesFinder;
 use Rector\Core\Reporting\MissingRectorRulesReporter;
+use Rector\Core\ValueObject\ProcessResult;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -214,13 +215,13 @@ final class ProcessCommand extends Command
         $outputFormatter = $this->outputFormatterCollector->getByName($outputFormat);
 
         // here should be value obect factory
-
-        $outputFormatter->report($this->errorAndDiffCollector);
+        $processResult = $this->processResultFactory->create($files);
+        $outputFormatter->report($processResult);
 
         // invalidate affected files
-        $this->invalidateAffectedCacheFiles();
+        $this->invalidateCacheChangedFiles($processResult);
 
-        return $this->resolveReturnCode();
+        return $this->resolveReturnCode($processResult);
     }
 
     protected function initialize(InputInterface $input, OutputInterface $output): void
@@ -246,21 +247,21 @@ final class ProcessCommand extends Command
         }
     }
 
-    private function invalidateAffectedCacheFiles(): void
+    private function invalidateCacheChangedFiles(ProcessResult $processResult): void
     {
         if (! $this->configuration->isCacheEnabled()) {
             return;
         }
 
-        foreach ($this->errorAndDiffCollector->getAffectedFileInfos() as $affectedFileInfo) {
+        foreach ($processResult->getChangedFileInfos() as $affectedFileInfo) {
             $this->changedFilesDetector->invalidateFile($affectedFileInfo);
         }
     }
 
-    private function resolveReturnCode(): int
+    private function resolveReturnCode(ProcessResult $processResult): int
     {
         // some errors were found → fail
-        if ($this->errorAndDiffCollector->getErrors() !== []) {
+        if ($processResult->getErrors() !== []) {
             return ShellCode::ERROR;
         }
 
@@ -269,6 +270,6 @@ final class ProcessCommand extends Command
             return ShellCode::SUCCESS;
         }
 
-        return $this->errorAndDiffCollector->getFileDiffsCount() === 0 ? ShellCode::SUCCESS : ShellCode::ERROR;
+        return $processResult->getFileDiffs() === [] ? ShellCode::SUCCESS : ShellCode::ERROR;
     }
 }

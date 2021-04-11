@@ -168,9 +168,9 @@ final class RectorApplication
 
         // 4. print to file or string
         foreach ($phpFileInfos as $phpFileInfo) {
-            // cannot print file with errors, as print would break everything to orignal nodes
-            if ($this->errorAndDiffCollector->hasErrors($phpFileInfo)) {
-                $this->advance($phpFileInfo, 'printing');
+            // cannot print file with errors, as print would break everything to original nodes
+            if ($this->errorAndDiffCollector->hasSmartFileErrors($phpFileInfo)) {
+                $this->advance($phpFileInfo, 'printing skipped due error');
                 continue;
             }
 

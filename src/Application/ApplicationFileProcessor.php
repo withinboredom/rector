@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Rector\Core\Application;
 
 use Rector\ChangesReporting\Application\ErrorAndDiffCollector;
+use Rector\ChangesReporting\ValueObjectFactory\FileDiffFactory;
 use Rector\Core\Configuration\Configuration;
 use Rector\Core\Contract\Processor\FileProcessorInterface;
 use Rector\Core\ValueObject\Application\File;
@@ -33,18 +34,25 @@ final class ApplicationFileProcessor
     private $errorAndDiffCollector;
 
     /**
+     * @var FileDiffFactory
+     */
+    private $fileDiffFactory;
+
+    /**
      * @param FileProcessorInterface[] $fileProcessors
      */
     public function __construct(
         ErrorAndDiffCollector $errorAndDiffCollector,
         Configuration $configuration,
         SmartFileSystem $smartFileSystem,
+        FileDiffFactory $fileDiffFactory,
         array $fileProcessors = []
     ) {
         $this->fileProcessors = $fileProcessors;
         $this->smartFileSystem = $smartFileSystem;
         $this->errorAndDiffCollector = $errorAndDiffCollector;
         $this->configuration = $configuration;
+        $this->fileDiffFactory = $fileDiffFactory;
     }
 
     /**
@@ -60,7 +68,12 @@ final class ApplicationFileProcessor
             }
 
             // decorate file diffs
-            $this->errorAndDiffCollector->addFileDiff($file, $file->getOriginalFileContent(), $file->getFileContent());
+            $fileDiff = $this->fileDiffFactory->createFileDiff(
+                $file,
+                $file->getOriginalFileContent(),
+                $file->getFileContent()
+            );
+            $file->setFileDiff($fileDiff);
 
             if ($this->configuration->isDryRun()) {
                 return;
