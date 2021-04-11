@@ -145,7 +145,7 @@ CODE_SAMPLE
     /**
      * @param mixed $value
      */
-    private function normalizeValueToArgument($value): Arg
+    private function normalizeValueToArgument($value): \Arg
     {
         // class constants → turn string to composite
         if (is_string($value) && Strings::contains($value, '::')) {

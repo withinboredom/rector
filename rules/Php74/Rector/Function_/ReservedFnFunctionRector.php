@@ -92,11 +92,7 @@ CODE_SAMPLE
                 continue;
             }
 
-            if ($node instanceof FuncCall) {
-                $node->name = new Name($newName);
-            } else {
-                $node->name = new Identifier($newName);
-            }
+            $node->name = $node instanceof FuncCall ? new Name($newName) : new Identifier($newName);
 
             return $node;
         }

@@ -36,7 +36,7 @@ final class RenameStaticMethod
         $this->newMethod = $newMethod;
     }
 
-    public function getOldObjectType(): ObjectType
+    public function getOldObjectType(): \ObjectType
     {
         return new ObjectType($this->oldClass);
     }

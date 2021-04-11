@@ -33,7 +33,7 @@ final class ClassConstFetchToValue
         $this->value = $value;
     }
 
-    public function getObjectType(): ObjectType
+    public function getObjectType(): \ObjectType
     {
         return new ObjectType($this->class);
     }

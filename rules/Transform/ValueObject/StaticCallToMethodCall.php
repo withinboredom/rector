@@ -39,7 +39,7 @@ final class StaticCallToMethodCall
         $this->methodName = $methodName;
     }
 
-    public function getClassObjectType(): ObjectType
+    public function getClassObjectType(): \ObjectType
     {
         return new ObjectType($this->classType);
     }

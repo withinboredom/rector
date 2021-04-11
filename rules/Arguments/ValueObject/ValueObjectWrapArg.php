@@ -36,7 +36,7 @@ final class ValueObjectWrapArg
         $this->newType = $newType;
     }
 
-    public function getObjectType(): ObjectType
+    public function getObjectType(): \ObjectType
     {
         return new ObjectType($this->objectType);
     }
@@ -51,7 +51,7 @@ final class ValueObjectWrapArg
         return $this->argPosition;
     }
 
-    public function getNewType(): ObjectType
+    public function getNewType(): \ObjectType
     {
         return new ObjectType($this->newType);
     }

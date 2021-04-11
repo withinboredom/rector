@@ -130,7 +130,7 @@ final class FluentChainMethodCallRootExtractor
         return $variableStaticType !== $calledMethodStaticType;
     }
 
-    private function createAssignAndRootExprForVariableOrPropertyFetch(MethodCall $methodCall): AssignAndRootExpr
+    private function createAssignAndRootExprForVariableOrPropertyFetch(MethodCall $methodCall): \AssignAndRootExpr
     {
         $isFirstCallFactory = $this->resolveIsFirstMethodCallFactory($methodCall);
 
@@ -151,7 +151,7 @@ final class FluentChainMethodCallRootExtractor
         return new AssignAndRootExpr($methodCall->var, $methodCall->var, null, $isFirstCallFactory);
     }
 
-    private function resolveKindInArgs(MethodCall $methodCall): AssignAndRootExpr
+    private function resolveKindInArgs(MethodCall $methodCall): \AssignAndRootExpr
     {
         $variableName = $this->variableNaming->resolveFromNode($methodCall->var);
         if ($variableName === null) {

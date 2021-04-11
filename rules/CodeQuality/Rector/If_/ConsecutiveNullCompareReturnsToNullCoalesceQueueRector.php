@@ -147,7 +147,7 @@ CODE_SAMPLE
     /**
      * @param Expr[] $coalescingNodes
      */
-    private function createReturnCoalesceNode(array $coalescingNodes): Return_
+    private function createReturnCoalesceNode(array $coalescingNodes): \Return_
     {
         /** @var Expr $left */
         $left = array_shift($coalescingNodes);

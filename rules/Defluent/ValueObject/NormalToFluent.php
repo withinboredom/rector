@@ -27,7 +27,7 @@ final class NormalToFluent
         $this->methodNames = $methodNames;
     }
 
-    public function getObjectType(): ObjectType
+    public function getObjectType(): \ObjectType
     {
         return new ObjectType($this->class);
     }

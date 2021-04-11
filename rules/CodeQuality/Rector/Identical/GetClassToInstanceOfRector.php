@@ -61,9 +61,6 @@ final class GetClassToInstanceOfRector extends AbstractRector
         return [Identical::class, NotIdentical::class];
     }
 
-    /**
-     * @param Identical|NotIdentical $node
-     */
     public function refactor(Node $node): ?Node
     {
         $twoNodeMatch = $this->binaryOpManipulator->matchFirstAndSecondConditionNode(

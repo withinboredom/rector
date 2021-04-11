@@ -52,7 +52,7 @@ final class ActionWithFormProcessClassMethodFactory
         return $classMethod;
     }
 
-    private function createFormInstanceAssign(string $formTypeClass, Variable $formVariable): Assign
+    private function createFormInstanceAssign(string $formTypeClass, Variable $formVariable): \Assign
     {
         $classConstFetch = $this->nodeFactory->createClassConstReference($formTypeClass);
         $args = [new Arg($classConstFetch)];
@@ -61,7 +61,7 @@ final class ActionWithFormProcessClassMethodFactory
         return new Assign($formVariable, $createFormMethodCall);
     }
 
-    private function createFormIsSuccessAndIsValid(Variable $formVariable): BooleanAnd
+    private function createFormIsSuccessAndIsValid(Variable $formVariable): \BooleanAnd
     {
         $isSuccessMethodCall = new MethodCall($formVariable, 'isSuccess');
         $isValidMethodCall = new MethodCall($formVariable, 'isValid');

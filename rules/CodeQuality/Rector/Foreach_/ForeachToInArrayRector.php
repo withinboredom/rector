@@ -224,7 +224,7 @@ CODE_SAMPLE
         return $this->nodeFactory->createFuncCall('in_array', $arguments);
     }
 
-    private function createReturn(Expr $expr, FuncCall $funcCall): Return_
+    private function createReturn(Expr $expr, FuncCall $funcCall): \Return_
     {
         $expr = $this->valueResolver->isFalse($expr) ? new BooleanNot($funcCall) : $funcCall;
 

@@ -166,7 +166,7 @@ CODE_SAMPLE
         return $args;
     }
 
-    private function createDefaultValueArg(int $argumentIndex): Arg
+    private function createDefaultValueArg(int $argumentIndex): \Arg
     {
         if (! array_key_exists($argumentIndex, self::ARGUMENT_DEFAULT_VALUES)) {
             throw new ShouldNotHappenException();

@@ -126,7 +126,7 @@ CODE_SAMPLE
         return $this->hasParentCallOfMethod($classMethod, $method);
     }
 
-    private function createParentStaticCall(string $method): Expression
+    private function createParentStaticCall(string $method): \Expression
     {
         $staticCall = $this->nodeFactory->createStaticCall('parent', $method);
         return new Expression($staticCall);

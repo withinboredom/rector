@@ -20,7 +20,7 @@ final class SetUpFactory
         $this->nodeFactory = $nodeFactory;
     }
 
-    public function createParentStaticCall(): Expression
+    public function createParentStaticCall(): \Expression
     {
         $parentSetupStaticCall = $this->nodeFactory->createStaticCall('parent', MethodName::SET_UP);
         return new Expression($parentSetupStaticCall);

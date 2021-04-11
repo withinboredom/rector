@@ -6,7 +6,6 @@ namespace Rector\DowngradePhp72\NodeAnalyzer;
 
 use PhpParser\Node;
 use PhpParser\Node\Param;
-use PHPStan\BetterReflection\Reflection\Adapter\ReflectionParameter;
 use PHPStan\Reflection\ClassReflection;
 use PHPStan\Type\MixedType;
 use PHPStan\Type\Type;
@@ -61,10 +60,6 @@ final class NativeTypeClassTreeResolver
 
     private function resolveNativeType(\ReflectionParameter $reflectionParameter): Type
     {
-        if (! $reflectionParameter instanceof ReflectionParameter) {
-            return new MixedType();
-        }
-
         $betterReflectionParameter = $this->privatesAccessor->getPrivateProperty(
             $reflectionParameter,
             'betterReflectionParameter'

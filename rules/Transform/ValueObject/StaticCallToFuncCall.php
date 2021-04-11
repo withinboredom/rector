@@ -30,7 +30,7 @@ final class StaticCallToFuncCall
         $this->function = $function;
     }
 
-    public function getObjectType(): ObjectType
+    public function getObjectType(): \ObjectType
     {
         return new ObjectType($this->class);
     }

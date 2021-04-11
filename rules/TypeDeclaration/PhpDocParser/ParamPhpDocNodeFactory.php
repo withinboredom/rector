@@ -21,7 +21,7 @@ final class ParamPhpDocNodeFactory
         $this->nodeNameResolver = $nodeNameResolver;
     }
 
-    public function create(TypeNode $typeNode, Param $param): VariadicAwareParamTagValueNode
+    public function create(TypeNode $typeNode, Param $param): \VariadicAwareParamTagValueNode
     {
         return new VariadicAwareParamTagValueNode(
             $typeNode,

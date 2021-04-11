@@ -46,7 +46,7 @@ final class ArgumentDefaultValueReplacer
         $this->valueAfter = $valueAfter;
     }
 
-    public function getObjectType(): ObjectType
+    public function getObjectType(): \ObjectType
     {
         return new ObjectType($this->class);
     }

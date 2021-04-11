@@ -21,7 +21,7 @@ final class MethodTagValueParameterNodeFactory
         $this->staticTypeMapper = $staticTypeMapper;
     }
 
-    public function createFromParamReflection(ParameterReflection $parameterReflection): MethodTagValueParameterNode
+    public function createFromParamReflection(ParameterReflection $parameterReflection): \MethodTagValueParameterNode
     {
         $parameterType = $parameterReflection->getType();
         if ($parameterType instanceof MixedType && ! $parameterType->isExplicitMixed()) {

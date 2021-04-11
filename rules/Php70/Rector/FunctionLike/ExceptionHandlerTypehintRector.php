@@ -56,9 +56,6 @@ CODE_SAMPLE
         return [Function_::class, ClassMethod::class];
     }
 
-    /**
-     * @param Function_|ClassMethod $node
-     */
     public function refactor(Node $node): ?Node
     {
         if (! $this->isAtLeastPhpVersion(PhpVersionFeature::THROWABLE_TYPE)) {

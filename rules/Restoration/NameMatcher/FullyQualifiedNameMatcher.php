@@ -41,7 +41,7 @@ final class FullyQualifiedNameMatcher
 
     /**
      * @param string|Name|Identifier|FullyQualified|UnionType|NullableType|null $name
-     * @return NullableType|FullyQualified|null
+     * @return null|\NullableType|\FullyQualified
      */
     public function matchFullyQualifiedName($name)
     {

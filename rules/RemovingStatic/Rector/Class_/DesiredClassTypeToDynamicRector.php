@@ -187,7 +187,7 @@ CODE_SAMPLE
         return false;
     }
 
-    private function createParam(string $propertyName, ObjectType $objectType): Param
+    private function createParam(string $propertyName, ObjectType $objectType): \Param
     {
         return new Param(new Variable($propertyName), null, new FullyQualified($objectType->getClassName()));
     }

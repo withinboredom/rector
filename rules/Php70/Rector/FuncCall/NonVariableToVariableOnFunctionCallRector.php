@@ -165,7 +165,7 @@ final class NonVariableToVariableOnFunctionCallRector extends AbstractRector
         return $arguments;
     }
 
-    private function getReplacementsFor(Expr $expr, MutatingScope $mutatingScope, Node $scopeNode): VariableAssignPair
+    private function getReplacementsFor(Expr $expr, MutatingScope $mutatingScope, Node $scopeNode): \VariableAssignPair
     {
         /** @var Assign|AssignOp|AssignRef $expr */
         if ($this->isAssign($expr) && $this->isVariableLikeNode($expr->var)) {

@@ -64,9 +64,6 @@ CODE_SAMPLE
         return [Identical::class, NotIdentical::class];
     }
 
-    /**
-     * @param Identical|NotIdentical $node
-     */
     public function refactor(Node $node): ?Node
     {
         $funcCall = $this->matchIdenticalOrNotIdenticalToFalse($node);

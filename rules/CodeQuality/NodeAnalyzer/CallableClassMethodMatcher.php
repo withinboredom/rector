@@ -102,7 +102,7 @@ final class CallableClassMethodMatcher
         return null;
     }
 
-    private function popFirstObjectType(Type $type): Type
+    private function popFirstObjectType(Type $type): ObjectType
     {
         if ($type instanceof UnionType) {
             foreach ($type->getTypes() as $unionedType) {

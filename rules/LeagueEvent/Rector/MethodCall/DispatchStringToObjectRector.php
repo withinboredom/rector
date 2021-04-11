@@ -102,7 +102,7 @@ CODE_SAMPLE
         return $methodCall;
     }
 
-    private function createNewAnonymousEventClass(Expr $expr): New_
+    private function createNewAnonymousEventClass(Expr $expr): \New_
     {
         $implements = [new FullyQualified('League\Event\HasEventName')];
 

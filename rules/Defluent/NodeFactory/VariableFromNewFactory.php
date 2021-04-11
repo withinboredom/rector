@@ -21,7 +21,7 @@ final class VariableFromNewFactory
         $this->variableNaming = $variableNaming;
     }
 
-    public function create(New_ $new): Variable
+    public function create(New_ $new): \Variable
     {
         $variableName = $this->variableNaming->resolveFromNode($new);
         if ($variableName === null) {

@@ -212,7 +212,7 @@ final class PhpSpecMocksToPHPUnitMocksRector extends AbstractPhpSpecToPHPUnitRec
         return $assignExpression;
     }
 
-    private function createPropertyFetchMockVariableAssign(Param $param, Name $name): Expression
+    private function createPropertyFetchMockVariableAssign(Param $param, Name $name): \Expression
     {
         $variable = $this->getName($param->var);
         if ($variable === null) {

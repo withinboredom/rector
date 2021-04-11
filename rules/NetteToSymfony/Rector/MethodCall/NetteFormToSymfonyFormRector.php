@@ -103,9 +103,6 @@ CODE_SAMPLE
         return [New_::class, MethodCall::class];
     }
 
-    /**
-     * @param New_|MethodCall $node
-     */
     public function refactor(Node $node): ?Node
     {
         $classLike = $node->getAttribute(AttributeKey::CLASS_NODE);

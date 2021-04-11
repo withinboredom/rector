@@ -30,7 +30,7 @@ final class ChangeConstantVisibility
         $this->visibility = $visibility;
     }
 
-    public function getObjectType(): ObjectType
+    public function getObjectType(): \ObjectType
     {
         return new ObjectType($this->class);
     }

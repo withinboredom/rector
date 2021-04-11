@@ -95,9 +95,6 @@ CODE_SAMPLE
         return [FileWithoutNamespace::class, Namespace_::class];
     }
 
-    /**
-     * @param Namespace_|FileWithoutNamespace $node
-     */
     public function refactor(Node $node): ?Node
     {
         $this->newNamespace = null;

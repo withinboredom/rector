@@ -9,7 +9,7 @@ use Rector\Php80\ValueObject\StrStartsWith;
 
 final class StrStartsWithFactory
 {
-    public function createFromFuncCall(FuncCall $funcCall, bool $isPositive): StrStartsWith
+    public function createFromFuncCall(FuncCall $funcCall, bool $isPositive): \StrStartsWith
     {
         $haystack = $funcCall->args[0]->value;
         $needle = $funcCall->args[1]->value;

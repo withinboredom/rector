@@ -84,7 +84,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function processContinueStatement(Continue_ $continue): Stmt
+    private function processContinueStatement(Continue_ $continue): Node
     {
         if ($continue->num === null) {
             return new Break_();

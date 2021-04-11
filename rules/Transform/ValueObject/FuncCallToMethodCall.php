@@ -35,7 +35,7 @@ final class FuncCallToMethodCall
         return $this->oldFuncName;
     }
 
-    public function getNewObjectType(): ObjectType
+    public function getNewObjectType(): \ObjectType
     {
         return new ObjectType($this->newClassName);
     }

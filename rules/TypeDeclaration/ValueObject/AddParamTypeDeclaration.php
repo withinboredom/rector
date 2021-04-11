@@ -37,7 +37,7 @@ final class AddParamTypeDeclaration
         $this->paramType = $paramType;
     }
 
-    public function getObjectType(): ObjectType
+    public function getObjectType(): \ObjectType
     {
         return new ObjectType($this->className);
     }

@@ -30,7 +30,7 @@ final class PropertyAssignToMethodCall
         $this->newMethodName = $newMethodName;
     }
 
-    public function getObjectType(): ObjectType
+    public function getObjectType(): \ObjectType
     {
         return new ObjectType($this->class);
     }

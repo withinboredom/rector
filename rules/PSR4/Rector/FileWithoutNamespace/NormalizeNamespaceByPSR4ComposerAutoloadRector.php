@@ -110,7 +110,7 @@ CODE_SAMPLE
     private function refactorFileWithoutNamespace(
         FileWithoutNamespace $fileWithoutNamespace,
         string $expectedNamespace
-    ): FileWithoutNamespace {
+    ): \FileWithoutNamespace {
         $nodes = $fileWithoutNamespace->stmts;
 
         $nodesWithStrictTypesThenNamespace = [];

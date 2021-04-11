@@ -156,7 +156,7 @@ final class EregToPregMatchRector extends AbstractRector
         $limitNumberNode->value = 1;
     }
 
-    private function createTernaryWithStrlenOfFirstMatch(FuncCall $funcCall): Ternary
+    private function createTernaryWithStrlenOfFirstMatch(FuncCall $funcCall): \Ternary
     {
         $arrayDimFetch = new ArrayDimFetch($funcCall->args[2]->value, new LNumber(0));
         $strlenFuncCall = $this->nodeFactory->createFuncCall('strlen', [$arrayDimFetch]);

@@ -96,7 +96,7 @@ final class ExtendsTemplateTypeMapFallbackFactory
         TemplateTypeScope $templateTypeScope,
         string $parentGenericTypeName,
         TypeWithClassName $typeWithClassName
-    ): TemplateObjectType {
+    ): \TemplateObjectType {
         return new TemplateObjectType(
             $templateTypeScope,
             new TemplateTypeParameterStrategy(),

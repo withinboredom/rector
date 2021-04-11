@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\EarlyReturn\NodeTransformer;
 
+use PhpParser\Node;
 use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\BinaryOp;
 use PhpParser\Node\Expr\BinaryOp\BooleanAnd;
@@ -22,7 +23,7 @@ final class ConditionInverter
         $this->binaryOpManipulator = $binaryOpManipulator;
     }
 
-    public function createInvertedCondition(Expr $expr): Expr
+    public function createInvertedCondition(Expr $expr): Node
     {
         // inverse condition
         if ($expr instanceof BinaryOp) {

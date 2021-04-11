@@ -105,7 +105,7 @@ CODE_SAMPLE
         $this->renameClassConstFetches = $renameClassConstFetches;
     }
 
-    private function createClassAndConstFetch(RenameClassAndConstFetch $renameClassAndConstFetch): ClassConstFetch
+    private function createClassAndConstFetch(RenameClassAndConstFetch $renameClassAndConstFetch): \ClassConstFetch
     {
         return new ClassConstFetch(
             new FullyQualified($renameClassAndConstFetch->getNewClass()),

@@ -93,9 +93,6 @@ CODE_SAMPLE
         return [Class_::class, Trait_::class];
     }
 
-    /**
-     * @param Class_|Trait_ $node
-     */
     public function refactor(Node $node): ?Node
     {
         $sortedAndOriginalClassMethods = $this->getSortedAndOriginalClassMethods($node);
@@ -135,7 +132,7 @@ CODE_SAMPLE
      */
     private function getSortedAndOriginalClassMethods(
         ClassLike $classLike
-    ): SortedClassMethodsAndOriginalClassMethods {
+    ): \SortedClassMethodsAndOriginalClassMethods {
         return new SortedClassMethodsAndOriginalClassMethods(
             $this->getLocalPrivateMethodCallOrder($classLike),
             $this->resolvePrivateClassMethods($classLike)

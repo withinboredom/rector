@@ -111,9 +111,6 @@ CODE_SAMPLE
         return [Assign::class, PropertyFetch::class];
     }
 
-    /**
-     * @param Assign|PropertyFetch $node
-     */
     public function refactor(Node $node): ?Node
     {
         if ($node instanceof Assign) {

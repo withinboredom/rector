@@ -311,7 +311,7 @@ final class TokenManipulator
         return new ArrayDimFetchAndConstFetch($identical->right, $identical->left);
     }
 
-    private function createIsTConstTypeMethodCall(ArrayDimFetch $arrayDimFetch, ConstFetch $constFetch): MethodCall
+    private function createIsTConstTypeMethodCall(ArrayDimFetch $arrayDimFetch, ConstFetch $constFetch): \MethodCall
     {
         return new MethodCall($arrayDimFetch->var, 'is', [new Arg($constFetch)]);
     }

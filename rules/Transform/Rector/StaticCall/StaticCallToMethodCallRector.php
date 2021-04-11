@@ -164,7 +164,7 @@ CODE_SAMPLE
     private function refactorToInstanceCall(
         StaticCall $staticCall,
         StaticCallToMethodCall $staticCallToMethodCall
-    ): MethodCall {
+    ): \MethodCall {
         $new = new New_(new FullyQualified($staticCallToMethodCall->getClassType()));
         return new MethodCall($new, $staticCallToMethodCall->getMethodName(), $staticCall->args);
     }

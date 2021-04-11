@@ -144,7 +144,7 @@ CODE_SAMPLE
         return true;
     }
 
-    private function processReturnTrue(If_ $if, Return_ $nextReturnNode): Return_
+    private function processReturnTrue(If_ $if, Return_ $nextReturnNode): \Return_
     {
         if ($if->cond instanceof BooleanNot && $nextReturnNode->expr !== null && $this->valueResolver->isTrue(
             $nextReturnNode->expr

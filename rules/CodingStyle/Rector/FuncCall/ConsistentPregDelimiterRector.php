@@ -108,9 +108,6 @@ CODE_SAMPLE
         return [FuncCall::class, StaticCall::class];
     }
 
-    /**
-     * @param FuncCall|StaticCall $node
-     */
     public function refactor(Node $node): ?Node
     {
         if ($node instanceof FuncCall) {

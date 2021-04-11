@@ -39,7 +39,7 @@ final class MethodCallToAnotherMethodCallWithArguments
         $this->newArguments = $newArguments;
     }
 
-    public function getObjectType(): ObjectType
+    public function getObjectType(): \ObjectType
     {
         return new ObjectType($this->type);
     }

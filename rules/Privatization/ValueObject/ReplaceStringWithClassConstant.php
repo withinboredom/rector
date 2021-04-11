@@ -39,7 +39,7 @@ final class ReplaceStringWithClassConstant
         $this->argPosition = $argPosition;
     }
 
-    public function getObjectType(): ObjectType
+    public function getObjectType(): \ObjectType
     {
         return new ObjectType($this->class);
     }

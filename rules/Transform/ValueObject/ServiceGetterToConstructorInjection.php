@@ -30,7 +30,7 @@ final class ServiceGetterToConstructorInjection
         $this->serviceType = $serviceType;
     }
 
-    public function getOldObjectType(): ObjectType
+    public function getOldObjectType(): \ObjectType
     {
         return new ObjectType($this->oldType);
     }

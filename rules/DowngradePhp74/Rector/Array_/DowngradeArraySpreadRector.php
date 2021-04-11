@@ -169,7 +169,7 @@ CODE_SAMPLE
     /**
      * @param (ArrayItem|null)[] $items
      */
-    private function createArrayMerge(Array_ $array, array $items): FuncCall
+    private function createArrayMerge(Array_ $array, array $items): \FuncCall
     {
         /** @var Scope $nodeScope */
         $nodeScope = $array->getAttribute(AttributeKey::SCOPE);
@@ -213,12 +213,12 @@ CODE_SAMPLE
     /**
      * @param array<ArrayItem|null> $items
      */
-    private function createArrayItem(array $items): ArrayItem
+    private function createArrayItem(array $items): \ArrayItem
     {
         return new ArrayItem(new Array_($items));
     }
 
-    private function createArgFromSpreadArrayItem(Scope $nodeScope, ArrayItem $arrayItem): Arg
+    private function createArgFromSpreadArrayItem(Scope $nodeScope, ArrayItem $arrayItem): \Arg
     {
         // By now every item is a variable
         /** @var Variable $variable */

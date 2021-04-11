@@ -96,9 +96,6 @@ CODE_SAMPLE
         return [LNumber::class, DNumber::class];
     }
 
-    /**
-     * @param LNumber|DNumber $node
-     */
     public function refactor(Node $node): ?Node
     {
         if (! $this->isAtLeastPhpVersion(PhpVersionFeature::LITERAL_SEPARATOR)) {

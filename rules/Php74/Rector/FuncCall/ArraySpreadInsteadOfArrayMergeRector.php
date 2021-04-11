@@ -170,7 +170,7 @@ CODE_SAMPLE
         return $expr;
     }
 
-    private function createUnpackedArrayItem(Expr $expr): ArrayItem
+    private function createUnpackedArrayItem(Expr $expr): \ArrayItem
     {
         return new ArrayItem($expr, null, false, [], true);
     }

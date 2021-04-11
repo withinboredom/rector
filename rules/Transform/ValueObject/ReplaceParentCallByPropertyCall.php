@@ -30,7 +30,7 @@ final class ReplaceParentCallByPropertyCall
         $this->property = $property;
     }
 
-    public function getObjectType(): ObjectType
+    public function getObjectType(): \ObjectType
     {
         return new ObjectType($this->class);
     }

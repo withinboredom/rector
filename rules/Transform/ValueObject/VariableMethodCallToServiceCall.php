@@ -50,7 +50,7 @@ final class VariableMethodCallToServiceCall
         $this->serviceMethodName = $serviceMethodName;
     }
 
-    public function getVariableObjectType(): ObjectType
+    public function getVariableObjectType(): \ObjectType
     {
         return new ObjectType($this->variableType);
     }

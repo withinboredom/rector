@@ -30,7 +30,7 @@ final class SingleToManyMethod
         $this->manyMethodName = $manyMethodName;
     }
 
-    public function getObjectType(): ObjectType
+    public function getObjectType(): \ObjectType
     {
         return new ObjectType($this->class);
     }

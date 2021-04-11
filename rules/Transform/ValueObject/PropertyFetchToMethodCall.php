@@ -50,7 +50,7 @@ final class PropertyFetchToMethodCall
         $this->newGetArguments = $newGetArguments;
     }
 
-    public function getOldObjectType(): ObjectType
+    public function getOldObjectType(): \ObjectType
     {
         return new ObjectType($this->oldType);
     }

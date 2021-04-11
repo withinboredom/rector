@@ -30,7 +30,7 @@ final class NewToStaticCall
         $this->staticCallMethod = $staticCallMethod;
     }
 
-    public function getObjectType(): ObjectType
+    public function getObjectType(): \ObjectType
     {
         return new ObjectType($this->type);
     }

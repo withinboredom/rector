@@ -24,7 +24,7 @@ final class ArrayDimFetchTypeResolver
         $this->nodeTypeResolver = $nodeTypeResolver;
     }
 
-    public function resolve(ArrayDimFetch $arrayDimFetch): ArrayType
+    public function resolve(ArrayDimFetch $arrayDimFetch): \ArrayType
     {
         $keyStaticType = $this->resolveDimType($arrayDimFetch);
         $valueStaticType = $this->resolveValueStaticType($arrayDimFetch);

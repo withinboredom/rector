@@ -24,6 +24,7 @@ final class NestedArrayType
      */
     private $keyType;
 
+
     public function __construct(Type $valueType, int $arrayNestingLevel, ?Type $keyType = null)
     {
         $this->type = $valueType;

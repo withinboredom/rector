@@ -28,12 +28,12 @@ final class DimFetchAssignToMethodCall
         $this->addMethod = $addMethod;
     }
 
-    public function getListObjectType(): ObjectType
+    public function getListObjectType(): \ObjectType
     {
         return new ObjectType($this->listClass);
     }
 
-    public function getItemObjectType(): ObjectType
+    public function getItemObjectType(): \ObjectType
     {
         return new ObjectType($this->itemClass);
     }

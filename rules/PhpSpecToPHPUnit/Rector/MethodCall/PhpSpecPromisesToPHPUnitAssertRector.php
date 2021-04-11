@@ -299,7 +299,7 @@ final class PhpSpecPromisesToPHPUnitAssertRector extends AbstractPhpSpecToPHPUni
         return $this->isName($methodCall->name, 'createMock');
     }
 
-    private function createTestedObjectPropertyFetch(Class_ $class): PropertyFetch
+    private function createTestedObjectPropertyFetch(Class_ $class): \PropertyFetch
     {
         $propertyName = $this->phpSpecRenaming->resolveObjectPropertyName($class);
 

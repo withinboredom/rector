@@ -83,7 +83,7 @@ CODE_SAMPLE
         return ! Strings::startsWith($string->value, 'phar://');
     }
 
-    private function prefixWithDir(String_ $string): Concat
+    private function prefixWithDir(String_ $string): \Concat
     {
         $this->removeExtraDotSlash($string);
         $this->prependSlashIfMissing($string);

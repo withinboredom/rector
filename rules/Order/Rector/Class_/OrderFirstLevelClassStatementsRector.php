@@ -66,9 +66,6 @@ CODE_SAMPLE
         return [Class_::class, Trait_::class];
     }
 
-    /**
-     * @param Class_|Trait_ $node
-     */
     public function refactor(Node $node): ?Node
     {
         $node->stmts = $this->getStmtsInDesiredPosition($node->stmts);

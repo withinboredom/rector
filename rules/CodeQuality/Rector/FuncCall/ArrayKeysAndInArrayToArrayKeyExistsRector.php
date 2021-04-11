@@ -103,7 +103,7 @@ CODE_SAMPLE
         return $this->createArrayKeyExists($node, $arrayKeysFuncCall);
     }
 
-    private function createArrayKeyExists(FuncCall $inArrayFuncCall, FuncCall $arrayKeysFuncCall): FuncCall
+    private function createArrayKeyExists(FuncCall $inArrayFuncCall, FuncCall $arrayKeysFuncCall): \FuncCall
     {
         $arguments = [$inArrayFuncCall->args[0], $arrayKeysFuncCall->args[0]];
 

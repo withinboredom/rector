@@ -114,7 +114,7 @@ CODE_SAMPLE
         $this->valueObjectWrapArgs = $configuration[self::VALUE_OBJECT_WRAP_ARGS] ?? [];
     }
 
-    private function wrapInNewWithType(ObjectType $newObjectType, Expr $expr): New_
+    private function wrapInNewWithType(ObjectType $newObjectType, Expr $expr): \New_
     {
         $fullyQualified = new FullyQualified($newObjectType->getClassName());
         return new New_($fullyQualified, [new Arg($expr)]);

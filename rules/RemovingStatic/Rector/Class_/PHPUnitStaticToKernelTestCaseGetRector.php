@@ -315,7 +315,7 @@ CODE_SAMPLE
         return $class;
     }
 
-    private function createContainerGetTypeToPropertyAssign(ObjectType $objectType): Expression
+    private function createContainerGetTypeToPropertyAssign(ObjectType $objectType): \Expression
     {
         $getMethodCall = $this->selfContainerFactory->createGetTypeMethodCall($objectType);
 

@@ -96,7 +96,7 @@ final class ClassMethodRenderAnalyzer
         $this->returnAnalyzer = $returnAnalyzer;
     }
 
-    public function collectFromClassMethod(ClassMethod $classMethod): ClassMethodRender
+    public function collectFromClassMethod(ClassMethod $classMethod): \ClassMethodRender
     {
         $this->templateFileExprs = [];
         $this->templateVariables = [];

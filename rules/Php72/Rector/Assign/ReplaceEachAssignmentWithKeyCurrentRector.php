@@ -128,7 +128,7 @@ CODE_SAMPLE
         Expr $eachedVariable,
         $dimValue,
         string $functionName
-    ): Assign {
+    ): \Assign {
         $dim = BuilderHelpers::normalizeValue($dimValue);
         $arrayDimFetch = new ArrayDimFetch($assignVariable, $dim);
 

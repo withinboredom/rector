@@ -27,7 +27,7 @@ final class ParentClassToTraits
         $this->traitNames = $traitNames;
     }
 
-    public function getParentObjectType(): ObjectType
+    public function getParentObjectType(): \ObjectType
     {
         return new ObjectType($this->parentType);
     }

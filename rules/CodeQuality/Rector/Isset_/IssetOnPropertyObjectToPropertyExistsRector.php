@@ -130,14 +130,14 @@ CODE_SAMPLE
         Expr $expr,
         string $property,
         PropertyFetch $propertyFetch
-    ): BooleanAnd {
+    ): \BooleanAnd {
         $args = [new Arg($expr), new Arg(new String_($property))];
         $propertyExistsFuncCall = $this->nodeFactory->createFuncCall('property_exists', $args);
 
         return new BooleanAnd($propertyExistsFuncCall, $this->createNotIdenticalToNull($propertyFetch));
     }
 
-    private function createNotIdenticalToNull(Expr $expr): NotIdentical
+    private function createNotIdenticalToNull(Expr $expr): \NotIdentical
     {
         return new NotIdentical($expr, $this->nodeFactory->createNull());
     }

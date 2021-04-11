@@ -138,7 +138,7 @@ CODE_SAMPLE
         return $this->getVersionNumberFormVersionString($expr);
     }
 
-    private function getVersionNumberFormVersionString(Expr $expr): LNumber
+    private function getVersionNumberFormVersionString(Expr $expr): \LNumber
     {
         if (! $expr instanceof String_) {
             throw new ShouldNotHappenException();

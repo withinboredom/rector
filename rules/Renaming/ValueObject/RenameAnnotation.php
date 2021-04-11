@@ -30,7 +30,7 @@ final class RenameAnnotation
         $this->newAnnotation = $newAnnotation;
     }
 
-    public function getObjectType(): ObjectType
+    public function getObjectType(): \ObjectType
     {
         return new ObjectType($this->type);
     }

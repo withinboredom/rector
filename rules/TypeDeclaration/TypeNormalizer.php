@@ -128,7 +128,7 @@ final class TypeNormalizer
     /**
      * @param array<string|int, Type> $nonConstantValueTypes
      */
-    private function createArrayTypeFromNonConstantValueTypes(array $nonConstantValueTypes): ArrayType
+    private function createArrayTypeFromNonConstantValueTypes(array $nonConstantValueTypes): \ArrayType
     {
         $nonConstantValueTypes = array_values($nonConstantValueTypes);
         if (count($nonConstantValueTypes) > 1) {

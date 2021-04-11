@@ -104,7 +104,7 @@ final class NonFluentChainMethodCallFactory
         return $nodesToAdd;
     }
 
-    private function createAssignExpression(Variable $newVariable, New_ $new): Expression
+    private function createAssignExpression(Variable $newVariable, New_ $new): \Expression
     {
         $assign = new Assign($newVariable, $new);
         return new Expression($assign);

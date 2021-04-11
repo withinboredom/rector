@@ -88,9 +88,6 @@ CODE_SAMPLE
         return [List_::class, Array_::class];
     }
 
-    /**
-     * @param List_|Array_ $node
-     */
     public function refactor(Node $node): ?Node
     {
         if (! $this->shouldRefactor($node)) {
@@ -294,7 +291,7 @@ CODE_SAMPLE
         Variable $exprVariable,
         array $nestedArrayIndexes,
         $arrayIndex
-    ): AssignRef {
+    ): \AssignRef {
         $nestedExprVariable = $exprVariable;
         foreach ($nestedArrayIndexes as $nestedArrayIndex) {
             $nestedArrayIndexDim = BuilderHelpers::normalizeValue($nestedArrayIndex);

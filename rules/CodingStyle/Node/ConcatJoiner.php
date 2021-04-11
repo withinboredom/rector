@@ -26,7 +26,7 @@ final class ConcatJoiner
      * Joins all String_ nodes to string.
      * Returns that string + array of non-string nodes that were replaced by hash placeholders
      */
-    public function joinToStringAndPlaceholderNodes(Concat $concat): ConcatStringAndPlaceholders
+    public function joinToStringAndPlaceholderNodes(Concat $concat): \ConcatStringAndPlaceholders
     {
         $parentNode = $concat->getAttribute(AttributeKey::PARENT_NODE);
         if (! $parentNode instanceof Concat) {

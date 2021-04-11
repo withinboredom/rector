@@ -132,7 +132,7 @@ CODE_SAMPLE
         return ! $ifNode->cond instanceof FuncCall;
     }
 
-    private function createAssignNode(Foreach_ $foreach, string $name, ArrayDimFetch $arrayDimFetch): Assign
+    private function createAssignNode(Foreach_ $foreach, string $name, ArrayDimFetch $arrayDimFetch): \Assign
     {
         $string = new String_($name);
 

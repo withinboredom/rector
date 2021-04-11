@@ -87,9 +87,6 @@ CODE_SAMPLE
         return [MethodCall::class, String_::class];
     }
 
-    /**
-     * @param MethodCall|String_ $node
-     */
     public function refactor(Node $node): ?Node
     {
         if ($node instanceof MethodCall) {
@@ -187,7 +184,7 @@ CODE_SAMPLE
         return $this->isName($methodCall->name, 'getType');
     }
 
-    private function refactorReflectionParameterGetName(MethodCall $methodCall): Ternary
+    private function refactorReflectionParameterGetName(MethodCall $methodCall): \Ternary
     {
         $getNameMethodCall = $this->nodeFactory->createMethodCall($methodCall, self::GET_NAME);
 

@@ -30,7 +30,7 @@ final class RenameProperty
         $this->newProperty = $newProperty;
     }
 
-    public function getObjectType(): ObjectType
+    public function getObjectType(): \ObjectType
     {
         return new ObjectType($this->type);
     }

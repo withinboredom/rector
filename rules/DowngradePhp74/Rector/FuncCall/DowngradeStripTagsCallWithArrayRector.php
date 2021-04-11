@@ -161,7 +161,7 @@ CODE_SAMPLE
     /**
      * @param Array_|Variable|PropertyFetch|ConstFetch|ClassConstFetch $expr
      */
-    private function createArrayFromString(Expr $expr): Concat
+    private function createArrayFromString(Expr $expr): \Concat
     {
         $args = [new Arg(new String_('><')), new Arg($expr)];
         $implodeFuncCall = new FuncCall(new Name('implode'), $args);
@@ -173,7 +173,7 @@ CODE_SAMPLE
     /**
      * @param Variable|PropertyFetch|ConstFetch|ClassConstFetch $expr
      */
-    private function createIsArrayTernaryFromExpression(Expr $expr): Ternary
+    private function createIsArrayTernaryFromExpression(Expr $expr): \Ternary
     {
         $isArrayFuncCall = new FuncCall(new Name('is_array'), [new Arg($expr)]);
         $nullNotIdentical = new NotIdentical($expr, $this->nodeFactory->createNull());

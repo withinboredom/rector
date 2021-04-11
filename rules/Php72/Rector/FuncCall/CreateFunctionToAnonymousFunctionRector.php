@@ -162,7 +162,7 @@ CODE_SAMPLE
         return $this->inlineCodeParser->parse($expr);
     }
 
-    private function createEval(Expr $expr): Expression
+    private function createEval(Expr $expr): \Expression
     {
         $evalFuncCall = new FuncCall(new Name('eval'), [new Arg($expr)]);
         return new Expression($evalFuncCall);

@@ -43,7 +43,7 @@ final class MethodTagValueNodeFactory
         MethodReflection $methodReflection,
         ReturnTagValueNode $returnTagValueNode,
         ChildParentClassReflections $childParentClassReflections
-    ): MethodTagValueNode {
+    ): \MethodTagValueNode {
         $templateTypeMap = $childParentClassReflections->getTemplateTypeMap();
         $returnTagTypeNode = $this->resolveReturnTagTypeNode($returnTagValueNode, $templateTypeMap);
 
@@ -80,7 +80,7 @@ final class MethodTagValueNodeFactory
     private function resolveReturnTagTypeNode(
         ReturnTagValueNode $returnTagValueNode,
         TemplateTypeMap $templateTypeMap
-    ): TypeNode {
+    ): UnionTypeNode {
         $returnTagTypeNode = $returnTagValueNode->type;
         if ($returnTagValueNode->type instanceof UnionTypeNode) {
             return $this->resolveUnionTypeNode($returnTagValueNode->type, $templateTypeMap);
@@ -97,7 +97,10 @@ final class MethodTagValueNodeFactory
         return $returnTagTypeNode;
     }
 
-    private function resolveUnionTypeNode(UnionTypeNode $unionTypeNode, TemplateTypeMap $templateTypeMap): UnionTypeNode
+    private function resolveUnionTypeNode(
+        UnionTypeNode $unionTypeNode,
+        TemplateTypeMap $templateTypeMap
+    ): \UnionTypeNode
     {
         $resolvedTypes = [];
         foreach ($unionTypeNode->types as $unionedTypeNode) {

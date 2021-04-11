@@ -139,7 +139,7 @@ CODE_SAMPLE
         return $this->createMultipleIfs($left, $return, $ifs);
     }
 
-    private function createIf(Expr $expr, Return_ $return): If_
+    private function createIf(Expr $expr, Return_ $return): \If_
     {
         return new If_(
             $expr,

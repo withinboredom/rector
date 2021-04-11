@@ -30,12 +30,12 @@ final class NewToMethodCall
         $this->serviceMethod = $serviceMethod;
     }
 
-    public function getNewObjectType(): ObjectType
+    public function getNewObjectType(): \ObjectType
     {
         return new ObjectType($this->newType);
     }
 
-    public function getServiceObjectType(): ObjectType
+    public function getServiceObjectType(): \ObjectType
     {
         return new ObjectType($this->serviceType);
     }

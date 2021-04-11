@@ -24,7 +24,7 @@ final class ReturnArrayClassMethodToYield
         $this->method = $method;
     }
 
-    public function getObjectType(): ObjectType
+    public function getObjectType(): \ObjectType
     {
         return new ObjectType($this->type);
     }

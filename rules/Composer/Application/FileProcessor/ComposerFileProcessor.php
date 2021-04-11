@@ -63,12 +63,13 @@ final class ComposerFileProcessor implements FileProcessorInterface
     public function supports(File $file): bool
     {
         $fileInfo = $file->getSmartFileInfo();
-
-        if (StaticPHPUnitEnvironment::isPHPUnitRun() && $fileInfo->hasSuffixes(['json'])) {
-            return true;
+        if (! StaticPHPUnitEnvironment::isPHPUnitRun()) {
+            return $fileInfo->getRealPath() === getcwd() . '/composer.json';
         }
-
-        return $fileInfo->getRealPath() === getcwd() . '/composer.json';
+        if (! $fileInfo->hasSuffixes(['json'])) {
+            return $fileInfo->getRealPath() === getcwd() . '/composer.json';
+        }
+        return true;
     }
 
     /**

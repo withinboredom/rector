@@ -38,6 +38,7 @@ final class CondAndExpr
      */
     private $condExpr;
 
+
     public function __construct(?Expr $condExpr, Expr $expr, string $kind)
     {
         $this->condExpr = $condExpr;

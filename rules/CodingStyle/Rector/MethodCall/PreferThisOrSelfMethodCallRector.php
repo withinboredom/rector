@@ -78,9 +78,6 @@ CODE_SAMPLE
         return [MethodCall::class, StaticCall::class];
     }
 
-    /**
-     * @param MethodCall|StaticCall $node
-     */
     public function refactor(Node $node): ?Node
     {
         foreach ($this->typeToPreference as $type => $preference) {

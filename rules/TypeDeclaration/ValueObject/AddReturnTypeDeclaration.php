@@ -46,7 +46,7 @@ final class AddReturnTypeDeclaration
         return $this->returnType;
     }
 
-    public function getObjectType(): ObjectType
+    public function getObjectType(): \ObjectType
     {
         return new ObjectType($this->class);
     }

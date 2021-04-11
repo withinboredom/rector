@@ -101,7 +101,7 @@ CODE_SAMPLE
         return $funcCall;
     }
 
-    private function createConstFetch(string $name): ConstFetch
+    private function createConstFetch(string $name): \ConstFetch
     {
         return new ConstFetch(new Name($name));
     }

@@ -66,9 +66,6 @@ CODE_SAMPLE
         return [FuncCall::class, StaticCall::class];
     }
 
-    /**
-     * @param FuncCall|StaticCall $node
-     */
     public function refactor(Node $node): ?Node
     {
         $regexArguments = $this->regexPatternArgumentManipulator->matchCallArgumentWithRegexPattern($node);

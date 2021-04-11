@@ -64,7 +64,7 @@ final class ArgumentAdder
         $this->scope = $scope;
     }
 
-    public function getObjectType(): ObjectType
+    public function getObjectType(): \ObjectType
     {
         return new ObjectType($this->class);
     }

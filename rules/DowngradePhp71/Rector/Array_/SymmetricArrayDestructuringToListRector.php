@@ -55,7 +55,7 @@ final class SymmetricArrayDestructuringToListRector extends AbstractRector
         return $this->processToList($node);
     }
 
-    private function processToList(Array_ $array): FuncCall
+    private function processToList(Array_ $array): \FuncCall
     {
         $args = [];
         foreach ($array->items as $arrayItem) {

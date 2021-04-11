@@ -33,7 +33,7 @@ final class NewArgToMethodCall
         $this->methodCall = $methodCall;
     }
 
-    public function getObjectType(): ObjectType
+    public function getObjectType(): \ObjectType
     {
         return new ObjectType($this->type);
     }

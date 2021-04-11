@@ -62,9 +62,6 @@ final class DowngradePregUnmatchedAsNullConstantRector extends AbstractRector
         return [FuncCall::class, ClassConst::class];
     }
 
-    /**
-     * @param FuncCall|ClassConst $node
-     */
     public function refactor(Node $node): ?Node
     {
         if ($node instanceof ClassConst) {

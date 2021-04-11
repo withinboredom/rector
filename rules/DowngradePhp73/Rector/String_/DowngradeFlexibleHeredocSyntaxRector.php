@@ -55,9 +55,6 @@ CODE_SAMPLE
         return [String_::class, Encapsed::class];
     }
 
-    /**
-     * @param Encapsed|String_ $node
-     */
     public function refactor(Node $node): ?Node
     {
         $stringKind = $node->getAttribute(AttributeKey::KIND);
