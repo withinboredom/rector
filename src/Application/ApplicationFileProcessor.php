@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Rector\Core\Application;
 
-use Rector\ChangesReporting\Application\ErrorAndDiffCollector;
 use Rector\ChangesReporting\ValueObjectFactory\FileDiffFactory;
 use Rector\Core\Configuration\Configuration;
 use Rector\Core\Contract\Processor\FileProcessorInterface;
@@ -29,11 +28,6 @@ final class ApplicationFileProcessor
     private $configuration;
 
     /**
-     * @var ErrorAndDiffCollector
-     */
-    private $errorAndDiffCollector;
-
-    /**
      * @var FileDiffFactory
      */
     private $fileDiffFactory;
@@ -42,7 +36,6 @@ final class ApplicationFileProcessor
      * @param FileProcessorInterface[] $fileProcessors
      */
     public function __construct(
-        ErrorAndDiffCollector $errorAndDiffCollector,
         Configuration $configuration,
         SmartFileSystem $smartFileSystem,
         FileDiffFactory $fileDiffFactory,
@@ -50,7 +43,6 @@ final class ApplicationFileProcessor
     ) {
         $this->fileProcessors = $fileProcessors;
         $this->smartFileSystem = $smartFileSystem;
-        $this->errorAndDiffCollector = $errorAndDiffCollector;
         $this->configuration = $configuration;
         $this->fileDiffFactory = $fileDiffFactory;
     }
@@ -83,14 +75,6 @@ final class ApplicationFileProcessor
         }
     }
 
-    private function printFile(File $file): void
-    {
-        $fileInfo = $file->getSmartFileInfo();
-
-        $this->smartFileSystem->dumpFile($fileInfo->getPathname(), $file->getFileContent());
-        $this->smartFileSystem->chmod($fileInfo->getRealPath(), $fileInfo->getPerms());
-    }
-
     /**
      * @param File[] $files
      */
@@ -105,5 +89,13 @@ final class ApplicationFileProcessor
                 $fileProcessor->process($file);
             }
         }
+    }
+
+    private function printFile(File $file): void
+    {
+        $smartFileInfo = $file->getSmartFileInfo();
+
+        $this->smartFileSystem->dumpFile($smartFileInfo->getPathname(), $file->getFileContent());
+        $this->smartFileSystem->chmod($smartFileInfo->getRealPath(), $smartFileInfo->getPerms());
     }
 }

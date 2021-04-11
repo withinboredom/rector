@@ -163,21 +163,6 @@ final class PhpFileProcessor implements FileProcessorInterface
         $this->tokensByFilePathStorage->addForRealPath($fileInfo, $parsedStmtsAndTokens);
     }
 
-    private function printToFile(SmartFileInfo $smartFileInfo): string
-    {
-        $parsedStmtsAndTokens = $this->tokensByFilePathStorage->getForFileInfo($smartFileInfo);
-        return $this->formatPerservingPrinter->printParsedStmstAndTokens($smartFileInfo, $parsedStmtsAndTokens);
-    }
-
-    /**
-     * See https://github.com/nikic/PHP-Parser/issues/344#issuecomment-298162516.
-     */
-    private function printToString(SmartFileInfo $smartFileInfo): string
-    {
-        $parsedStmtsAndTokens = $this->tokensByFilePathStorage->getForFileInfo($smartFileInfo);
-        return $this->formatPerservingPrinter->printParsedStmstAndTokensToString($parsedStmtsAndTokens);
-    }
-
     private function postFileRefactor(File $file): void
     {
         $smartFileInfo = $file->getSmartFileInfo();

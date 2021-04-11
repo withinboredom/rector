@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Rector\Core\Console\Command;
 
 use Rector\Caching\Detector\ChangedFilesDetector;
-use Rector\ChangesReporting\Application\ErrorAndDiffCollector;
 use Rector\ChangesReporting\Output\ConsoleOutputFormatter;
 use Rector\Core\Application\ApplicationFileProcessor;
 use Rector\Core\Application\FileFactory;
@@ -19,6 +18,7 @@ use Rector\Core\Exception\ShouldNotHappenException;
 use Rector\Core\FileSystem\PhpFilesFinder;
 use Rector\Core\Reporting\MissingRectorRulesReporter;
 use Rector\Core\ValueObject\ProcessResult;
+use Rector\Core\ValueObjectFactory\ProcessResultFactory;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -34,11 +34,6 @@ final class ProcessCommand extends Command
      * @var AdditionalAutoloader
      */
     private $additionalAutoloader;
-
-    /**
-     * @var ErrorAndDiffCollector
-     */
-    private $errorAndDiffCollector;
 
     /**
      * @var Configuration
@@ -91,7 +86,7 @@ final class ProcessCommand extends Command
     private $bootstrapFilesIncluder;
 
     /**
-     * @var \Rector\Core\ValueObjectFactory\ProcessResultFactory
+     * @var ProcessResultFactory
      */
     private $processResultFactory;
 
@@ -99,7 +94,6 @@ final class ProcessCommand extends Command
         AdditionalAutoloader $additionalAutoloader,
         ChangedFilesDetector $changedFilesDetector,
         Configuration $configuration,
-        ErrorAndDiffCollector $errorAndDiffCollector,
         OutputFormatterCollector $outputFormatterCollector,
         RectorApplication $rectorApplication,
         PhpFilesFinder $phpFilesFinder,
@@ -107,10 +101,9 @@ final class ProcessCommand extends Command
         ApplicationFileProcessor $applicationFileProcessor,
         FileFactory $fileFactory,
         BootstrapFilesIncluder $bootstrapFilesIncluder,
-        \Rector\Core\ValueObjectFactory\ProcessResultFactory $processResultFactory
+        ProcessResultFactory $processResultFactory
     ) {
         $this->additionalAutoloader = $additionalAutoloader;
-        $this->errorAndDiffCollector = $errorAndDiffCollector;
         $this->configuration = $configuration;
         $this->rectorApplication = $rectorApplication;
         $this->outputFormatterCollector = $outputFormatterCollector;
@@ -253,8 +246,8 @@ final class ProcessCommand extends Command
             return;
         }
 
-        foreach ($processResult->getChangedFileInfos() as $affectedFileInfo) {
-            $this->changedFilesDetector->invalidateFile($affectedFileInfo);
+        foreach ($processResult->getChangedFileInfos() as $changedFileInfo) {
+            $this->changedFilesDetector->invalidateFile($changedFileInfo);
         }
     }
 

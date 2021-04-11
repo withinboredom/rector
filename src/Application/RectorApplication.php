@@ -15,7 +15,6 @@ use Rector\Core\Contract\PostRunnerInterface;
 use Rector\Core\Exception\ShouldNotHappenException;
 use Rector\Core\StaticReflection\DynamicSourceLocatorDecorator;
 use Rector\Core\ValueObject\Application\File;
-use Rector\Core\ValueObject\Reporting\FileDiff;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symplify\PackageBuilder\Reflection\PrivatesAccessor;
@@ -274,8 +273,6 @@ final class RectorApplication
             return;
         }
 
-//        $oldContents = $fileInfo->getContents();
-
         $newContent = $this->configuration->isDryRun() ? $this->fileProcessor->printToString($fileInfo)
             : $this->fileProcessor->printToFile($fileInfo);
 
@@ -283,10 +280,7 @@ final class RectorApplication
         $file->changeFileContent($newContent);
 
         $fileDiff = $this->fileDiffFactory->createFileDiff($file, $file->getOriginalFileContent(), $newContent);
-        if ($fileDiff instanceof FileDiff) {
-            $file->setFileDiff($fileDiff);
-        }
-//        $this->errorAndDiffCollector->addFileDiff($file, $newContent, $oldContents);
+        $file->setFileDiff($fileDiff);
     }
 
     /**

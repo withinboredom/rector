@@ -9,7 +9,6 @@ use Nette\Utils\Strings;
 use PHPStan\Analyser\NodeScopeResolver;
 use PHPUnit\Framework\ExpectationFailedException;
 use Psr\Container\ContainerInterface;
-use Rector\Composer\Modifier\ComposerModifier;
 use Rector\Core\Application\ApplicationFileProcessor;
 use Rector\Core\Application\FileProcessor;
 use Rector\Core\Application\FileSystem\RemovedAndAddedFilesCollector;
@@ -23,7 +22,6 @@ use Rector\Core\ValueObject\Application\File;
 use Rector\NodeTypeResolver\Reflection\BetterReflection\SourceLocatorProvider\DynamicSourceLocatorProvider;
 use Rector\Testing\Contract\RectorTestInterface;
 use Rector\Testing\PHPUnit\Behavior\MovingFilesTrait;
-use Symplify\ComposerJsonManipulator\ComposerJsonFactory;
 use Symplify\EasyTesting\DataProvider\StaticFixtureFinder;
 use Symplify\EasyTesting\DataProvider\StaticFixtureUpdater;
 use Symplify\EasyTesting\StaticFixtureSplitter;
@@ -76,16 +74,6 @@ abstract class AbstractRectorTestCase extends AbstractKernelTestCase implements 
     private $dynamicSourceLocatorProvider;
 
     /**
-     * @var ComposerJsonFactory
-     */
-    private $composerJsonFactory;
-
-    /**
-     * @var ComposerModifier
-     */
-    private $composerModifier;
-
-    /**
      * @var ApplicationFileProcessor
      */
     private $applicationFileProcessor;
@@ -109,9 +97,6 @@ abstract class AbstractRectorTestCase extends AbstractKernelTestCase implements 
         $this->parameterProvider = $this->getService(ParameterProvider::class);
         $this->betterStandardPrinter = $this->getService(BetterStandardPrinter::class);
         $this->dynamicSourceLocatorProvider = $this->getService(DynamicSourceLocatorProvider::class);
-
-        $this->composerJsonFactory = $this->getService(ComposerJsonFactory::class);
-        $this->composerModifier = $this->getService(ComposerModifier::class);
 
         $this->removedAndAddedFilesCollector = $this->getService(RemovedAndAddedFilesCollector::class);
         $this->removedAndAddedFilesCollector->reset();
